@@ -1,9 +1,17 @@
 import { createRoute } from "@tanstack/react-router";
 import { rootRoute } from "@/main/router/config/router-config";
-import { Home } from "../presentation/screens";
+import { Home, UnderMaintenance } from "../presentation/screens";
 
-export const GeneralRoutes = createRoute({
+const HomeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
   component: Home,
 });
+
+const UnderMaintenanceRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/under-maintenance",
+  component: UnderMaintenance,
+});
+
+export const generalRoutes = [HomeRoute, UnderMaintenanceRoute];
