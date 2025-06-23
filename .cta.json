@@ -1,7 +1,7 @@
 {
   "projectName": ".",
   "mode": "code-router",
-  "typescript": false,
+  "typescript": true,
   "tailwind": false,
   "packageManager": "pnpm",
   "git": true,
