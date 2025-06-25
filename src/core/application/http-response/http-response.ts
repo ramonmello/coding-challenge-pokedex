@@ -39,7 +39,7 @@ export class RequestResponse<R> {
         return error(errors.value);
       }
 
-      return error(new UnexpectedError());
+      return error(new UnexpectedError(errors.value));
     } catch (err) {
       return error(new UnexpectedError(err));
     }
