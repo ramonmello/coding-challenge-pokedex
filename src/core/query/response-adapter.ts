@@ -1,15 +1,15 @@
 import type { ServiceCommand } from "@/core/domain/command/service-command";
 
 /**
- * Converte o Either vindo de um ServiceCommand em
- *   - resolve(data)  quando Success
- *   - throw(error)   quando Error
+ * Converts the Either coming from a ServiceCommand into
+ *   - resolve(data)  when Success
+ *   - throw(error)   when Error
  */
 export async function unwrapService<R>(svc: ServiceCommand<R>): Promise<R> {
   const result = await svc.execute();
 
   if (result.isError()) {
-    // DomainException será capturada pelo onError do QueryClient
+    // DomainException will be caught by QueryClient's onError
     throw result.value;
   }
 
