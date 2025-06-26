@@ -8,7 +8,7 @@ const HomeRoute = createRoute({
   // TODO: Remove redirect when home page is ready
   // Home page will be developed after submitting the technical test to Yampa as an additional project
   beforeLoad: () => {
-    throw redirect({ to: "/pokemon-list" });
+    throw redirect({ to: "/pokemon" });
   },
   component: Home,
 });

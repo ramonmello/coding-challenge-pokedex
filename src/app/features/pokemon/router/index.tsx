@@ -8,8 +8,9 @@ const PokemonListRoute = createRoute({
   loader: ({ context }) => {
     context.queryClient.prefetchQuery(pokemonsPageQueryOptions());
   },
-  path: "/pokemon-list",
+  path: "/pokemon",
   component: PokemonList,
+  // TODO: Add a loading component
   pendingComponent: () => <div>Loading...</div>,
 });
 
