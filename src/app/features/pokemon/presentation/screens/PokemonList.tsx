@@ -1,6 +1,5 @@
-import { Input } from "@/app/shared/components/ui";
 import { LanguageSwitcher } from "@/app/shared/components";
-import { PokeCard } from "../components/PokeCard";
+import { PokeCard, PokeSearch } from "../components";
 import { fakePokemonList } from "./tmp_fake_data";
 
 export const PokemonList = () => {
@@ -13,10 +12,7 @@ export const PokemonList = () => {
             <LanguageSwitcher />
           </div>
         </div>
-        <Input
-          placeholder="Pesquisar"
-          className="w-full md:w-auto md:order-none h-11 mt-4 md:mt-0"
-        />
+        <PokeSearch className="w-full md:w-auto md:order-none h-11 mt-4 md:mt-0" />
         <div className="hidden h-11 md:block">
           <LanguageSwitcher />
         </div>
