@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -75,6 +76,43 @@
 }
 
 @theme inline {
+  --dur-snap: 300ms;
+  --ease-snap: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-collapsible-down: collapsible-down var(--dur-snap) var(--ease-snap)
+    both;
+  --animate-collapsible-up: collapsible-up var(--dur-snap) var(--ease-snap) both;
+
+  @keyframes collapsible-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes collapsible-up {
+    from {
+      height: var(--radix-collapsible-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-collapsible-down,
+    .animate-collapsible-up {
+      animation: none;
+  }
+
+  --font-roboto: "Roboto", sans-serif;
+  --color-blue-dark: #2a2d46;
+  --color-blue-medium: #5d5f7c;
+  --color-blue-light: #f5fafb;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

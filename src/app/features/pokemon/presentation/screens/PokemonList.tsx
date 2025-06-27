@@ -1,45 +1,31 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { toast } from "sonner";
-import { pokemonsPageQueryOptions } from "@/app/features/pokemon/queries";
-import { useTranslation } from "@/app/shared/hooks/useTranslation";
-import { SUPPORTED_LANGUAGES } from "@/main/config/i18n/config";
+import { Input } from "@/app/shared/components/ui";
+import { LanguageSwitcher } from "@/app/shared/components";
+import { PokeCard } from "../components/PokeCard";
+import { fakePokemonList } from "./tmp_fake_data";
 
 export const PokemonList = () => {
-  const { data } = useSuspenseQuery(pokemonsPageQueryOptions());
-  const { t, i18n } = useTranslation("common");
-  const handleShowToast = () => {
-    toast.success("Lista de Pokémons carregada com sucesso!", {
-      description: `Encontrados ${data?.results?.length || 0} pokémons`,
-    });
-  };
-
   return (
-    <div>
-      <h1>PokemonList</h1>
-      <h2>{t("hello")}</h2>
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">Idiomas disponíveis:</h3>
-        <div className="flex gap-2">
-          {SUPPORTED_LANGUAGES.map((lang) => (
-            <button
-              key={lang}
-              onClick={() => i18n.changeLanguage(lang)}
-              disabled={i18n.resolvedLanguage === lang}
-              className="px-3 py-1 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors"
-            >
-              {lang}
-            </button>
-          ))}
+    <main className="font-roboto text-blue-dark">
+      <header className="sticky top-0 bg-white flex flex-col pt-4 px-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center justify-between md:justify-start md:gap-4">
+          <h1 className="h-11 leading-11 text-2xl font-bold">Pokédex</h1>
+          <div className="h-11 md:hidden flex gap-2">
+            <LanguageSwitcher />
+          </div>
         </div>
-      </div>
-      <h2>Test Lang: {t("hello")}</h2>
-      <button
-        onClick={handleShowToast}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-      >
-        Mostrar Toast
-      </button>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+        <Input
+          placeholder="Pesquisar"
+          className="w-full md:w-auto md:order-none h-11 mt-4 md:mt-0"
+        />
+        <div className="hidden h-11 md:block">
+          <LanguageSwitcher />
+        </div>
+      </header>
+      <section className="px-6 pt-4 flex gap-4 flex-col">
+        {fakePokemonList.map((pokemon) => (
+          <PokeCard key={pokemon.id} {...pokemon} />
+        ))}
+      </section>
+    </main>
   );
 };
