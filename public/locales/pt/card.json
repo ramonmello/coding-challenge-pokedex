@@ -1,0 +1,14 @@
+{
+  "expand": "Expandir",
+  "collapse": "Colapsar",
+  "viewDetails": "Ver detalhes",
+  "stats": {
+    "hp": "HP",
+    "attack": "Ataque",
+    "defense": "Defesa",
+    "specialAttack": "Ataque Esp.",
+    "specialDefense": "Defesa Esp.",
+    "speed": "Velocidade",
+    "total": "Total"
+  }
+}
