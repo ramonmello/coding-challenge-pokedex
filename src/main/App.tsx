@@ -11,6 +11,6 @@ export const App = () => (
   <QueryClientProvider client={queryClient}>
     <Toaster position="top-right" />
     <Router />
-    <ReactQueryDevtools buttonPosition="top-right" />
+    <ReactQueryDevtools buttonPosition="bottom-left" />
   </QueryClientProvider>
 );
