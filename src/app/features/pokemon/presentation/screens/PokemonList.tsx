@@ -5,7 +5,7 @@ import { fakePokemonList } from "./tmp_fake_data";
 
 export const PokemonList = () => {
   return (
-    <main className="font-roboto text-blue-dark">
+    <main>
       <header className="sticky top-0 bg-white flex flex-col pt-4 px-6 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center justify-between md:justify-start md:gap-4">
           <h1 className="h-11 leading-11 text-2xl font-bold">Pokédex</h1>

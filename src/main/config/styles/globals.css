@@ -3,8 +3,13 @@
 @import "tw-animate-css";
 
 :root {
+  --blue-dark: oklch(0.3063 0.0452 278.12);
+  --blue-medium: oklch(0.495 0.0462 281.48);
+  --blue-light: oklch(0.9816 0.0055 211.04);
+  --roboto: "Roboto", sans-serif;
+
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: var(--blue-dark);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -39,42 +44,10 @@
 }
 
 @theme inline {
-  --dur-snap: 300ms;
-  --ease-snap: cubic-bezier(0.2, 0, 0, 1);
-
-  --animate-collapsible-down: collapsible-down var(--dur-snap) var(--ease-snap)
-    both;
-  --animate-collapsible-up: collapsible-up var(--dur-snap) var(--ease-snap) both;
-
-  @keyframes collapsible-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-collapsible-content-height);
-    }
-  }
-
-  @keyframes collapsible-up {
-    from {
-      height: var(--radix-collapsible-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
-
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-collapsible-down,
-    .animate-collapsible-up {
-      animation: none;
-  }
-
-  --font-roboto: "Roboto", sans-serif;
-  --color-blue-dark: #2a2d46;
-  --color-blue-medium: #5d5f7c;
-  --color-blue-light: #f5fafb;
+  --color-blue-dark: var(--blue-dark);
+  --color-blue-medium: var(--blue-medium);
+  --color-blue-light: var(--blue-light);
+  --font-sans: var(--roboto);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
