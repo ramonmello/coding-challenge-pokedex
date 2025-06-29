@@ -1,0 +1,11 @@
+{
+  "stats": {
+    "hp": "HP",
+    "attack": "Ataque",
+    "defense": "Defesa",
+    "special_attack": "Ataque Esp.",
+    "special_defense": "Defesa Esp.",
+    "speed": "Velocidade",
+    "total": "Total"
+  }
+}

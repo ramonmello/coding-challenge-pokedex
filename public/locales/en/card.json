@@ -1,14 +1,5 @@
 {
   "expand": "Expand",
   "collapse": "Collapse",
-  "viewDetails": "View details",
-  "stats": {
-    "hp": "HP",
-    "attack": "Attack",
-    "defense": "Defense",
-    "special_attack": "Sp. atk",
-    "special_defense": "Sp. def",
-    "speed": "Speed",
-    "total": "Total"
-  }
+  "viewDetails": "View details"
 }
