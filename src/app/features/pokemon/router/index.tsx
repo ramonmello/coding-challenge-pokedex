@@ -1,12 +1,12 @@
 import { createRoute } from "@tanstack/react-router";
 import { rootRoute } from "@/main/router/config/router-config";
 import { PokemonList } from "../presentation/screens";
-import { pokemonsPageQueryOptions } from "../queries/list-pokemons";
+import { pokemonListQueryOptions } from "../queries/pokemon-list";
 
 const PokemonListRoute = createRoute({
   getParentRoute: () => rootRoute,
   loader: ({ context }) => {
-    context.queryClient.prefetchQuery(pokemonsPageQueryOptions());
+    context.queryClient.prefetchQuery(pokemonListQueryOptions());
   },
   path: "/pokemon",
   component: PokemonList,
