@@ -1,9 +1,7 @@
 import * as React from "react";
 
 import { useMediaQuery } from "@/app/shared/hooks/useMidiaQuery";
-import { cva, type VariantProps } from "class-variance-authority";
-
-import { cn } from "@/app/shared/utils";
+import { XIcon } from "lucide-react";
 
 import {
   Dialog,
@@ -12,38 +10,19 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from "@/app/shared/components/ui/dialog";
 import {
   Drawer,
-  //   DrawerClose,
   DrawerContent,
   DrawerDescription,
-  //   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerClose,
 } from "@/app/shared/components/ui/drawer";
 
-/**
- * Tailwind‑first size variants for desktop `DialogContent`.
- * Mobile `DrawerContent` already spans full width, so only desktop needs sizing.
- */
-const contentVariants = cva("w-full", {
-  variants: {
-    size: {
-      sm: "sm:max-w-[360px]",
-      md: "sm:max-w-[425px]",
-      lg: "sm:max-w-[560px]",
-    },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-});
-
-export interface ResponsiveDialogProps
-  extends React.PropsWithChildren,
-    VariantProps<typeof contentVariants> {
+export interface ResponsiveDialogProps extends React.PropsWithChildren {
   /**
    * Element that toggles the dialog/drawer. Usually a `<Button>`.
    * Rendered with `asChild` to preserve props. Example:
@@ -62,9 +41,9 @@ export interface ResponsiveDialogProps
 }
 
 /**
- * A11y‑friendly component that renders a **Dialog** on ≥768 px screens and a
- * **Drawer** on mobile, sharing the same API. It is fully controlled/uncontrolled,
- * supports sizing variants via CVA and allows any custom children as content.
+ * A11y‑friendly component that renders a **Dialog** on ≥768 px screens and a
+ * **Drawer** on mobile, sharing the same API. It is fully controlled/uncontrolled
+ * and allows any custom children as content.
  */
 export function ResponsiveDialog({
   trigger,
@@ -73,7 +52,6 @@ export function ResponsiveDialog({
   children,
   open,
   onOpenChange,
-  size,
 }: ResponsiveDialogProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
@@ -81,11 +59,16 @@ export function ResponsiveDialog({
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogTrigger asChild>{trigger}</DialogTrigger>
-        <DialogContent className={cn(contentVariants({ size }))}>
-          <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
+        <DialogContent showCloseButton={false}>
+          <DialogHeader className="flex flex-row justify-between items-center">
+            <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
+            <DialogClose className="cursor-pointer">
+              <XIcon className="size-5" />
+            </DialogClose>
             {description && (
-              <DialogDescription>{description}</DialogDescription>
+              <DialogDescription className="sr-only">
+                {description}
+              </DialogDescription>
             )}
           </DialogHeader>
           {children}
@@ -99,12 +82,19 @@ export function ResponsiveDialog({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>{title}</DrawerTitle>
-          {description && <DrawerDescription>{description}</DrawerDescription>}
+        <DrawerHeader className="flex flex-row justify-between items-center">
+          <DrawerTitle className="font-bold text-2xl">{title}</DrawerTitle>
+          <DrawerClose className="cursor-pointer">
+            <XIcon className="size-5" />
+          </DrawerClose>
+          {description && (
+            <DrawerDescription className="sr-only">
+              {description}
+            </DrawerDescription>
+          )}
         </DrawerHeader>
 
-        <div className="px-4 pb-4">{children}</div>
+        {children}
       </DrawerContent>
     </Drawer>
   );
