@@ -1,11 +1,12 @@
 import { defineConfig } from "vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import Inspect from "vite-plugin-inspect";
+
 import { resolve } from "node:path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [viteReact(), tailwindcss()],
+  plugins: [viteReact(), tailwindcss(), Inspect()],
   test: {
     globals: true,
     environment: "jsdom",
