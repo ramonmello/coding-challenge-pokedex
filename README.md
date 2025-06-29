@@ -1,1 +1,1 @@
-# Coding Challenge Yampa
+# Coding Challenge Pokédex
