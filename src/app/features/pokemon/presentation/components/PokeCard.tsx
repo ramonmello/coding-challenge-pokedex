@@ -1,7 +1,6 @@
 import type { PokemonCardData } from "../screens/tmp_fake_data";
 import {
   Button,
-  Badge,
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
@@ -11,9 +10,10 @@ import { PokeCardStat } from "./PokeCardStat";
 import { ChevronDownIcon } from "@/app/shared/components/icons";
 import { ResponsiveDialog } from "@/app/shared/components";
 import { PokeDetails } from "./PokeDetails";
+import { PokeTypes } from "./PokeTypes";
 
 export const PokeCard = ({ name, image, types, stats }: PokemonCardData) => {
-  const { t } = useTranslation("card");
+  const { t } = useTranslation(["common", "card"]);
 
   return (
     <Collapsible asChild>
@@ -21,24 +21,17 @@ export const PokeCard = ({ name, image, types, stats }: PokemonCardData) => {
         <div className="flex justify-between">
           <div className="flex flex-col">
             <h2 className="font-bold text-lg">{name}</h2>
-            <div className="flex gap-2 my-1">
-              {types.map((type) => (
-                <Badge variant="default" key={type}>
-                  {type}
-                </Badge>
-              ))}
-            </div>
-
+            <PokeTypes types={types} className="my-1" />
             <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
               <PokeCardStat name={t("stats.hp")} value={stats.hp} />
               <PokeCardStat name={t("stats.attack")} value={stats.attack} />
               <PokeCardStat name={t("stats.defense")} value={stats.defense} />
               <PokeCardStat
-                name={t("stats.specialAttack")}
+                name={t("stats.special_attack")}
                 value={stats.special_attack}
               />
               <PokeCardStat
-                name={t("stats.specialDefense")}
+                name={t("stats.special_defense")}
                 value={stats.special_defense}
               />
               <PokeCardStat name={t("stats.speed")} value={stats.speed} />
@@ -55,10 +48,10 @@ export const PokeCard = ({ name, image, types, stats }: PokemonCardData) => {
           <CollapsibleTrigger asChild>
             <Button variant="text" className="flex-1/2">
               <span className="group-data-[state=open]:hidden">
-                {t("expand")}
+                {t("card:expand")}
               </span>
               <span className="hidden group-data-[state=open]:inline">
-                {t("collapse")}
+                {t("card:collapse")}
               </span>
               <ChevronDownIcon className="size-5 transition-transform duration-300 group-data-[state=open]:-rotate-180" />
             </Button>
@@ -66,13 +59,18 @@ export const PokeCard = ({ name, image, types, stats }: PokemonCardData) => {
           <ResponsiveDialog
             trigger={
               <Button variant="text" className="flex-1/2">
-                {t("viewDetails")}
+                {t("card:viewDetails")}
               </Button>
             }
-            title={t("viewDetails")}
-            description={t("viewDetails")}
+            title={name}
+            description={t("card:viewDetails")}
           >
-            <PokeDetails />
+            <PokeDetails
+              name={name}
+              types={types}
+              stats={stats}
+              image={image}
+            />
           </ResponsiveDialog>
         </div>
       </div>
