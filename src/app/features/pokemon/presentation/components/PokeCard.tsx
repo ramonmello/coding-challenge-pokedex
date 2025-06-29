@@ -9,6 +9,8 @@ import {
 import { useTranslation } from "@/app/shared/hooks/useTranslation";
 import { PokeCardStat } from "./PokeCardStat";
 import { ChevronDownIcon } from "@/app/shared/components/icons";
+import { ResponsiveDialog } from "@/app/shared/components";
+import { PokeDetails } from "./PokeDetails";
 
 export const PokeCard = ({ name, image, types, stats }: PokemonCardData) => {
   const { t } = useTranslation("card");
@@ -61,9 +63,17 @@ export const PokeCard = ({ name, image, types, stats }: PokemonCardData) => {
               <ChevronDownIcon className="size-5 transition-transform duration-300 group-data-[state=open]:-rotate-180" />
             </Button>
           </CollapsibleTrigger>
-          <Button variant="text" className="flex-1/2">
-            {t("viewDetails")}
-          </Button>
+          <ResponsiveDialog
+            trigger={
+              <Button variant="text" className="flex-1/2">
+                {t("viewDetails")}
+              </Button>
+            }
+            title={t("viewDetails")}
+            description={t("viewDetails")}
+          >
+            <PokeDetails />
+          </ResponsiveDialog>
         </div>
       </div>
     </Collapsible>
