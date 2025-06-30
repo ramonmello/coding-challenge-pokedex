@@ -1,8 +1,13 @@
 import { LanguageSwitcher } from '@/app/shared/components'
 import { PokeCard, PokeSearch } from '../components'
-import { fakePokemonList } from './tmp_fake_data'
+import { pokeListOptions } from '@/app/features/pokemon/queries'
+import { useQuery } from '@tanstack/react-query'
+import { Suspense } from 'react'
+import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
 
 export const PokemonList = () => {
+  const { data } = useQuery(pokeListOptions())
+
   return (
     <main>
       <header className='sticky top-0 flex flex-col bg-white px-6 pt-4 md:flex-row md:items-center md:justify-between'>
@@ -18,8 +23,10 @@ export const PokemonList = () => {
         </div>
       </header>
       <section className='flex flex-col gap-4 px-6 pt-4'>
-        {fakePokemonList.map((pokemon) => (
-          <PokeCard key={pokemon.id} {...pokemon} />
+        {data?.results.map((pokemon) => (
+          <Suspense key={pokemon.name} fallback={<SkeletonPokeCard />}>
+            <PokeCard name={pokemon.name} />
+          </Suspense>
         ))}
       </section>
     </main>

@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { useMediaQuery } from "@/app/shared/hooks/useMidiaQuery";
-import { XIcon } from "lucide-react";
+import { useMediaQuery } from '@/app/shared/hooks/useMidiaQuery'
+import { XIcon } from 'lucide-react'
 
 import {
   Dialog,
@@ -10,8 +10,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose,
-} from "@/app/shared/components/ui/dialog";
+  DialogClose
+} from '@/app/shared/components/ui/dialog'
 import {
   Drawer,
   DrawerContent,
@@ -19,8 +19,8 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-  DrawerClose,
-} from "@/app/shared/components/ui/drawer";
+  DrawerClose
+} from '@/app/shared/components/ui/drawer'
 
 export interface ResponsiveDialogProps extends React.PropsWithChildren {
   /**
@@ -30,14 +30,14 @@ export interface ResponsiveDialogProps extends React.PropsWithChildren {
    * <ResponsiveDialog trigger={<Button>Edit</Button>} title="Edit profile">…</ResponsiveDialog>
    * ```
    */
-  trigger: React.ReactElement;
+  trigger: React.ReactElement
   /** Main heading shown on both desktop and mobile. */
-  title: React.ReactNode;
+  title: React.ReactNode
   /** Optional sub‑heading under the title. */
-  description?: React.ReactNode;
+  description?: React.ReactNode
   /** Controlled open state (optional). */
-  open?: boolean;
-  onOpenChange?: (open: boolean) => void;
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 /**
@@ -51,22 +51,24 @@ export function ResponsiveDialog({
   description,
   children,
   open,
-  onOpenChange,
+  onOpenChange
 }: ResponsiveDialogProps) {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery('(min-width: 768px)')
 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogTrigger asChild>{trigger}</DialogTrigger>
         <DialogContent showCloseButton={false}>
-          <DialogHeader className="flex flex-row justify-between items-center">
-            <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
-            <DialogClose className="cursor-pointer">
-              <XIcon className="size-5" />
+          <DialogHeader className='flex flex-row items-center justify-between'>
+            <DialogTitle className='text-2xl font-bold capitalize'>
+              {title}
+            </DialogTitle>
+            <DialogClose className='cursor-pointer'>
+              <XIcon className='size-5' />
             </DialogClose>
             {description && (
-              <DialogDescription className="sr-only">
+              <DialogDescription className='sr-only'>
                 {description}
               </DialogDescription>
             )}
@@ -74,7 +76,7 @@ export function ResponsiveDialog({
           {children}
         </DialogContent>
       </Dialog>
-    );
+    )
   }
 
   // Mobile drawer
@@ -82,13 +84,15 @@ export function ResponsiveDialog({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="flex flex-row justify-between items-center">
-          <DrawerTitle className="font-bold text-2xl">{title}</DrawerTitle>
-          <DrawerClose className="cursor-pointer">
-            <XIcon className="size-5" />
+        <DrawerHeader className='flex flex-row items-center justify-between'>
+          <DrawerTitle className='text-2xl font-bold capitalize'>
+            {title}
+          </DrawerTitle>
+          <DrawerClose className='cursor-pointer'>
+            <XIcon className='size-5' />
           </DrawerClose>
           {description && (
-            <DrawerDescription className="sr-only">
+            <DrawerDescription className='sr-only'>
               {description}
             </DrawerDescription>
           )}
@@ -97,5 +101,5 @@ export function ResponsiveDialog({
         {children}
       </DrawerContent>
     </Drawer>
-  );
+  )
 }
