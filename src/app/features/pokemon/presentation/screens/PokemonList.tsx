@@ -17,18 +17,18 @@ export const PokemonList = () => {
             <LanguageSwitcher />
           </div>
         </div>
-        <PokeSearch className='mt-4 h-11 w-full md:order-none md:mt-0 md:w-auto' />
+        <PokeSearch className='mt-4 h-11 w-full md:order-none md:mt-0 md:w-80' />
         <div className='hidden h-11 md:block'>
           <LanguageSwitcher />
         </div>
       </header>
-      <section className='flex flex-col gap-4 px-6 pt-4'>
+      <ul className='flex flex-col gap-4 p-6 md:mx-auto md:mt-4 md:grid md:max-w-[988px] md:grid-cols-3 md:gap-4'>
         {data?.results.map((pokemon) => (
           <Suspense key={pokemon.name} fallback={<SkeletonPokeCard />}>
             <PokeCard name={pokemon.name} />
           </Suspense>
         ))}
-      </section>
+      </ul>
     </main>
   )
 }

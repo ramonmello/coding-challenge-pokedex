@@ -12,6 +12,7 @@ import { PokeDetails } from './PokeDetails'
 import { PokeTypes } from './PokeTypes'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { pokeDetailsOptions } from '@/app/features/pokemon/queries'
+import { cn } from '@/app/shared/utils'
 
 type PokeCardProps = {
   name: string
@@ -24,7 +25,12 @@ export const PokeCard = ({ name }: PokeCardProps) => {
 
   return (
     <Collapsible asChild>
-      <div className='group bg-blue-light rounded-2xl px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)]'>
+      <li
+        className={cn(
+          'group h-fit w-full rounded-2xl',
+          'bg-blue-light px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)]'
+        )}
+      >
         <div className='flex justify-between'>
           <div className='flex flex-col'>
             <h2 className='text-lg font-bold capitalize'>{name}</h2>
@@ -77,7 +83,7 @@ export const PokeCard = ({ name }: PokeCardProps) => {
             <PokeDetails {...data} />
           </ResponsiveDialog>
         </div>
-      </div>
+      </li>
     </Collapsible>
   )
 }
