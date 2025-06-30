@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
 
 export const PokemonList = () => {
-  const { data } = useQuery(pokeListOptions())
+  const { data } = useQuery(pokeListOptions({ offset: 20, limit: 20 }))
 
   return (
     <main>

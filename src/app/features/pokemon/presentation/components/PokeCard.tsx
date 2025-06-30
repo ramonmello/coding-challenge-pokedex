@@ -52,11 +52,13 @@ export const PokeCard = ({ name }: PokeCardProps) => {
               }
             />
           </div>
-          <img
-            src={data.image}
-            alt={name}
-            className='h-20 w-auto transition-[height] duration-300 group-data-[state=open]:h-[7.5rem]'
-          />
+          <div className='max-w-36'>
+            <img
+              src={data.image}
+              alt={name}
+              className='h-20 w-auto transition-[height] duration-300 group-data-[state=open]:h-[7.5rem]'
+            />
+          </div>
         </div>
         <div className='mt-2 flex justify-between'>
           <CollapsibleTrigger asChild>

@@ -10,16 +10,20 @@ import {
   type PokemonListItemDTO
 } from '@/app/features/pokemon/application/dtos'
 
-export class GetPokemonList implements ServiceCommand<GetPokemonList.Response> {
+export class GetPokemonList
+  implements ServiceCommand<GetPokemonList.Response, GetPokemonList.Params>
+{
   constructor(
     private readonly httpClient: HttpClient<Paginated<PokemonListItemDTO>>,
     private readonly url: string
   ) {}
 
-  async execute(): Promise<ServiceCommand.Response<GetPokemonList.Response>> {
+  async execute(
+    params: GetPokemonList.Params
+  ): Promise<ServiceCommand.Response<GetPokemonList.Response>> {
     const httpResponse = await this.httpClient.request({
       method: HttpMethod.GET,
-      url: `${this.url}?offset=10&limit=10`
+      url: `${this.url}?offset=${params.offset}&limit=${params.limit}`
     })
 
     const responseOrError = RequestResponse.handle(httpResponse)
@@ -38,5 +42,9 @@ export class GetPokemonList implements ServiceCommand<GetPokemonList.Response> {
 }
 
 export namespace GetPokemonList {
+  export type Params = {
+    offset: number
+    limit: number
+  }
   export type Response = Paginated<PokemonListItem>
 }
