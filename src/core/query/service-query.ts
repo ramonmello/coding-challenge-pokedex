@@ -27,7 +27,7 @@ export function serviceOptions<R, T = void>(props: ServiceOptions<R, T>) {
   const { service, queryKey, options } = props
 
   return (...args: [T] extends [void] ? [] : [params: T]) => ({
-    queryKey,
+    queryKey: [...queryKey, ...args],
     queryFn: () => unwrapService<R, T>(service, ...args),
     ...options
   })
