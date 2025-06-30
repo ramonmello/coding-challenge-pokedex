@@ -3,8 +3,8 @@
     "hp": "HP",
     "attack": "Attack",
     "defense": "Defense",
-    "special_attack": "Sp. atk",
-    "special_defense": "Sp. def",
+    "special-attack": "Sp. atk",
+    "special-defense": "Sp. def",
     "speed": "Speed",
     "total": "Total"
   }
