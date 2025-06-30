@@ -3,6 +3,8 @@ import type { HttpClient } from '@/core/application/protocols'
 import { HttpMethod } from '@/core/application/protocols'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
+import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
+import type { Paginated } from '@/app/shared/types'
 
 export class GetPokemonList implements ServiceCommand<GetPokemonList.Response> {
   constructor(
@@ -29,11 +31,5 @@ export class GetPokemonList implements ServiceCommand<GetPokemonList.Response> {
 }
 
 export namespace GetPokemonList {
-  export type Response = {
-    count: number
-    results: {
-      name: string
-      url: string
-    }[]
-  }
+  export type Response = Paginated<PokemonListItem>
 }

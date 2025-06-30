@@ -3,13 +3,18 @@ import type { HttpClient } from '@/core/application/protocols'
 import { HttpMethod } from '@/core/application/protocols'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
+import {
+  pokemonDetailsMapper,
+  type PokemonDetailsDTO
+} from '@/app/features/pokemon/application/dtos'
+import type { PokemonDetails } from '@/app/features/pokemon/domain/models'
 
 export class GetPokemonDetails
   implements
     ServiceCommand<GetPokemonDetails.Response, GetPokemonDetails.Params>
 {
   constructor(
-    private readonly httpClient: HttpClient<GetPokemonDetails.Response>,
+    private readonly httpClient: HttpClient<PokemonDetailsDTO>,
     private readonly url: string
   ) {}
 
@@ -29,19 +34,8 @@ export class GetPokemonDetails
 
     const response = responseOrError.value.response
 
-    return success(response)
+    return success(pokemonDetailsMapper.dtoToModel(response))
   }
-}
-
-type Ability = {
-  name: string
-  url: string
-}
-
-type AbilityEntry = {
-  ability: Ability
-  is_hidden: boolean
-  slot: number
 }
 
 export namespace GetPokemonDetails {
@@ -49,7 +43,5 @@ export namespace GetPokemonDetails {
     name: string
   }
 
-  export type Response = {
-    abilities: AbilityEntry[]
-  }
+  export type Response = PokemonDetails
 }
