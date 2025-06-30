@@ -15,7 +15,7 @@ export class GetPokemonList implements ServiceCommand<GetPokemonList.Response> {
   async execute(): Promise<ServiceCommand.Response<GetPokemonList.Response>> {
     const httpResponse = await this.httpClient.request({
       method: HttpMethod.GET,
-      url: this.url
+      url: `${this.url}?offset=2&limit=2`
     })
 
     const responseOrError = RequestResponse.handle(httpResponse)
