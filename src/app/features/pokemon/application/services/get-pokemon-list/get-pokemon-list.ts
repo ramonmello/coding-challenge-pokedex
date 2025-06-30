@@ -4,7 +4,7 @@ import { HttpMethod } from '@/core/application/protocols'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
 import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
-import type { Paginated } from '@/app/shared/types'
+import type { Paginated, PaginatedDTO } from '@/app/shared/types'
 import {
   pokemonListMapper,
   type PokemonListItemDTO
@@ -14,7 +14,7 @@ export class GetPokemonList
   implements ServiceCommand<GetPokemonList.Response, GetPokemonList.Params>
 {
   constructor(
-    private readonly httpClient: HttpClient<Paginated<PokemonListItemDTO>>,
+    private readonly httpClient: HttpClient<PaginatedDTO<PokemonListItemDTO>>,
     private readonly url: string
   ) {}
 
@@ -34,10 +34,7 @@ export class GetPokemonList
 
     const response = responseOrError.value.response
 
-    return success({
-      ...response,
-      results: pokemonListMapper.dtoToModel(response.results)
-    })
+    return success(pokemonListMapper.dtoToModel(response))
   }
 }
 
