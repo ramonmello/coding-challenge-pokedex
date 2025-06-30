@@ -1,10 +1,11 @@
-import { serviceQueryOptions } from "@/core/query";
-import { getPokemonListService } from "../application/services/get-pokemon-list";
+import { serviceOptions } from '@/core/query'
+import {
+  getPokemonListService,
+  type GetPokemonList
+} from '../application/services/get-pokemon-list'
 
-const key = () => ["pokemon", "list"] as const;
-
-export const pokemonListQueryOptions = serviceQueryOptions(
-  key,
-  () => getPokemonListService,
-  { staleTime: 5 * 60_000 }
-);
+export const pokeListOptions = serviceOptions<GetPokemonList.Response>({
+  service: getPokemonListService,
+  queryKey: ['pokemon', 'list'],
+  options: { staleTime: 5 * 60_000 }
+})
