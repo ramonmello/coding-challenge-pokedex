@@ -16,7 +16,6 @@ import { cn } from '@/app/shared/utils'
 
 type PokeCardProps = {
   name: string
-  url?: string
 }
 
 export const PokeCard = ({ name }: PokeCardProps) => {

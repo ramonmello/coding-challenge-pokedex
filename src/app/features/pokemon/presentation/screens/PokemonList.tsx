@@ -23,9 +23,9 @@ export const PokemonList = () => {
         </div>
       </header>
       <ul className='flex flex-col gap-4 p-6 md:mx-auto md:mt-4 md:grid md:max-w-[988px] md:grid-cols-3 md:gap-4'>
-        {data?.results.map((pokemon) => (
-          <Suspense key={pokemon.name} fallback={<SkeletonPokeCard />}>
-            <PokeCard name={pokemon.name} />
+        {data?.results.map(({ name, id }) => (
+          <Suspense key={`${name}-${id}`} fallback={<SkeletonPokeCard />}>
+            <PokeCard name={name} />
           </Suspense>
         ))}
       </ul>
