@@ -1,12 +1,16 @@
+import { Suspense } from 'react'
 import { LanguageSwitcher } from '@/app/shared/components'
 import { PokeCard, PokeSearch } from '../components'
-import { pokeListOptions } from '@/app/features/pokemon/queries'
-import { useQuery } from '@tanstack/react-query'
-import { Suspense } from 'react'
+import { pokemonListQueryOptions } from '@/app/features/pokemon/queries'
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
 
 export const PokemonList = () => {
-  const { data } = useQuery(pokeListOptions({ offset: 20, limit: 20 }))
+  const { data, fetchNextPage } = useSuspenseInfiniteQuery(
+    pokemonListQueryOptions()
+  )
+  const pages = data?.pages
+  const results = pages?.flatMap((page) => page.results)
 
   return (
     <main>
@@ -23,12 +27,13 @@ export const PokemonList = () => {
         </div>
       </header>
       <ul className='flex flex-col gap-4 p-6 md:mx-auto md:mt-4 md:grid md:max-w-[988px] md:grid-cols-3 md:gap-4'>
-        {data?.results.map(({ name, id }) => (
+        {results.map(({ name, id }) => (
           <Suspense key={`${name}-${id}`} fallback={<SkeletonPokeCard />}>
             <PokeCard name={name} />
           </Suspense>
         ))}
       </ul>
+      <button onClick={() => fetchNextPage()}>load more</button>
     </main>
   )
 }
