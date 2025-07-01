@@ -4,7 +4,7 @@ import { PokemonList } from '../presentation/screens'
 
 const PokemonListRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/pokemon',
+  path: '/',
   component: PokemonList
 })
 
