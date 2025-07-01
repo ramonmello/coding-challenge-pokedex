@@ -11,8 +11,8 @@ export const PokemonList = () => {
   const results = pages?.flatMap((page) => page.results)
 
   return (
-    <main>
-      <header className='sticky top-0 flex flex-col bg-white px-6 pt-4 md:flex-row md:items-center md:justify-between'>
+    <main className='flex h-dvh flex-col'>
+      <header className='flex flex-col px-6 pt-4 md:flex-row md:items-center md:justify-between'>
         <div className='flex items-center justify-between md:justify-start md:gap-4'>
           <h1 className='h-11 text-2xl leading-11 font-bold'>Pokédex</h1>
           <div className='flex h-11 gap-2 md:hidden'>
