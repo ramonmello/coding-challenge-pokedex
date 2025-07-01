@@ -11,7 +11,7 @@ import { ResponsiveDialog } from '@/app/shared/components'
 import { PokeDetails } from './PokeDetails'
 import { PokeTypes } from './PokeTypes'
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { pokeDetailsOptions } from '@/app/features/pokemon/queries'
+import { pokemonDetailsQueryOptions } from '@/app/features/pokemon/queries'
 import { cn } from '@/app/shared/utils'
 
 type PokeCardProps = {
@@ -20,7 +20,7 @@ type PokeCardProps = {
 
 export const PokeCard = ({ name }: PokeCardProps) => {
   const { t } = useTranslation(['common', 'card'])
-  const { data } = useSuspenseQuery(pokeDetailsOptions({ name }))
+  const { data } = useSuspenseQuery(pokemonDetailsQueryOptions({ name }))
 
   return (
     <Collapsible asChild>

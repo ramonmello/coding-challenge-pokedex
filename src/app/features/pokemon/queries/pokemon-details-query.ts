@@ -4,7 +4,7 @@ import {
   type GetPokemonDetails
 } from '../application/services/get-pokemon-details'
 
-export const pokeDetailsOptions = serviceOptions<
+export const pokemonDetailsQueryOptions = serviceOptions<
   GetPokemonDetails.Response,
   GetPokemonDetails.Params
 >({
