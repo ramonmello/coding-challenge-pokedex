@@ -1,5 +1,6 @@
 import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
-import type { Paginated, PaginatedDTO } from '@/app/shared/types/paginated'
+import type { Paginated } from '@/core/domain/types/paginated'
+import type { PaginatedDTO } from '@/app/shared/types'
 
 export type PokemonListItemDTO = {
   name: string

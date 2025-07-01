@@ -9,10 +9,3 @@ export type Paginated<T> = {
   previous: PaginationParams | null
   results: T[]
 }
-
-export type PaginatedDTO<T> = {
-  count: number
-  next: string | null
-  previous: string | null
-  results: T[]
-}

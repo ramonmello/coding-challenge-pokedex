@@ -4,11 +4,8 @@ import { HttpMethod } from '@/core/application/protocols'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
 import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
-import type {
-  Paginated,
-  PaginatedDTO,
-  PaginationParams
-} from '@/app/shared/types'
+import type { Paginated, PaginationParams } from '@/core/domain/types/paginated'
+import type { PaginatedDTO } from '@/app/shared/types'
 import {
   pokemonListMapper,
   type PokemonListItemDTO

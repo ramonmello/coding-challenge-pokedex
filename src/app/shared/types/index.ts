@@ -1,1 +1,1 @@
-export * from './paginated'
+export * from './paginated-dto'
