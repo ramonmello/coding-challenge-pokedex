@@ -4,11 +4,14 @@ import {
   type GetPokemonDetails
 } from '../application/services/get-pokemon-details'
 
-export const pokemonDetailsQueryOptions = serviceOptions<
-  GetPokemonDetails.Response,
-  GetPokemonDetails.Params
->({
+export const pokemonDetailsQueryKeys = {
+  base: ['pokemon', 'details'] as const,
+  detail: (params: GetPokemonDetails.Params) =>
+    [...pokemonDetailsQueryKeys.base, params] as const
+}
+
+export const pokemonDetailsQueryOptions = serviceOptions({
   service: getPokemonDetailsService,
-  queryKey: ['pokemon', 'details'],
+  queryKey: pokemonDetailsQueryKeys.base,
   options: { staleTime: 5 * 60_000 }
 })

@@ -32,7 +32,7 @@ export const PokeCard = ({ name }: PokeCardProps) => {
       >
         <div className='flex justify-between'>
           <div className='flex flex-col'>
-            <h2 className='text-lg font-bold capitalize'>{name}</h2>
+            <h2 className='text-lg font-bold capitalize'>{data.name}</h2>
             <PokeTypes types={data.types} className='my-1' />
             <CollapsibleContent className='data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up overflow-hidden'>
               {data.stats
