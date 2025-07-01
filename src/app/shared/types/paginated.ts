@@ -1,4 +1,4 @@
-type PaginationParams = {
+export type PaginationParams = {
   offset: number
   limit: number
 }
