@@ -1,11 +1,12 @@
-import { createRoute } from '@tanstack/react-router'
+import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
-import { UnderMaintenance } from '../presentation/screens'
 
 const UnderMaintenanceRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/under-maintenance',
-  component: UnderMaintenance
+  component: lazyRouteComponent(
+    () => import('../presentation/screens/under-maintenance')
+  )
 })
 
 export const generalRoutes = [UnderMaintenanceRoute]

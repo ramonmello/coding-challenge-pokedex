@@ -1,4 +1,4 @@
-export function UnderMaintenance() {
+const UnderMaintenance = () => {
   return (
     <div>
       <h1>
@@ -7,5 +7,7 @@ export function UnderMaintenance() {
       </h1>
       <span>Por favor, volte mais tarde!</span>
     </div>
-  );
+  )
 }
+
+export default UnderMaintenance
