@@ -1,9 +1,7 @@
-import { Suspense } from 'react'
 import { LanguageSwitcher } from '@/app/shared/components'
-import { PokeCard, PokeSearch } from '../components'
+import { PokeSearch, PokemonGrid } from '../components'
 import { pokemonListQueryOptions } from '@/app/features/pokemon/queries'
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
-import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
 
 export const PokemonList = () => {
   const { data, fetchNextPage } = useSuspenseInfiniteQuery(
@@ -26,14 +24,7 @@ export const PokemonList = () => {
           <LanguageSwitcher />
         </div>
       </header>
-      <ul className='flex flex-col gap-4 p-6 md:mx-auto md:mt-4 md:grid md:max-w-[988px] md:grid-cols-3 md:gap-4'>
-        {results.map(({ name, id }) => (
-          <Suspense key={`${name}-${id}`} fallback={<SkeletonPokeCard />}>
-            <PokeCard name={name} />
-          </Suspense>
-        ))}
-      </ul>
-      <button onClick={() => fetchNextPage()}>load more</button>
+      <PokemonGrid results={results} fetchNextPage={fetchNextPage} />
     </main>
   )
 }
