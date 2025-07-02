@@ -24,14 +24,12 @@ export const PokemonGrid = ({
 
   const { ref: topSentinelRef, inView: topInView } = useInView({
     root: containerRef.current,
-    rootMargin: '200px 0px',
-    threshold: 0
+    rootMargin: '200px 0px'
   })
 
   const { ref: bottomSentinelRef, inView: bottomInView } = useInView({
     root: containerRef.current,
-    rootMargin: '200px 0px',
-    threshold: 0
+    rootMargin: '200px 0px'
   })
 
   useEffect(() => {
