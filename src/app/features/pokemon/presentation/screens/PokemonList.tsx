@@ -13,13 +13,7 @@ export const PokemonList = () => {
     null
   )
 
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    fetchPreviousPage,
-    hasPreviousPage
-  } = useSuspenseInfiniteQuery(pokemonListQueryOptions())
+  const { data } = useSuspenseInfiniteQuery(pokemonListQueryOptions())
   const pages = data?.pages
   const infiniteQueryResults = pages?.flatMap((page) => page.results)
 
@@ -51,13 +45,7 @@ export const PokemonList = () => {
           <LanguageSwitcher />
         </div>
       </header>
-      <PokemonGrid
-        results={results}
-        fetchNextPage={fetchNextPage}
-        hasNextPage={!searchResult && hasNextPage}
-        fetchPreviousPage={fetchPreviousPage}
-        hasPreviousPage={!searchResult && hasPreviousPage}
-      />
+      <PokemonGrid results={results} />
     </main>
   )
 }
