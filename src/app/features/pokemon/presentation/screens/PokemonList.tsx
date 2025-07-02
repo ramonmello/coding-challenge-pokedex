@@ -4,9 +4,13 @@ import { pokemonListQueryOptions } from '@/app/features/pokemon/queries'
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 
 export const PokemonList = () => {
-  const { data, fetchNextPage } = useSuspenseInfiniteQuery(
-    pokemonListQueryOptions()
-  )
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    fetchPreviousPage,
+    hasPreviousPage
+  } = useSuspenseInfiniteQuery(pokemonListQueryOptions())
   const pages = data?.pages
   const results = pages?.flatMap((page) => page.results)
 
@@ -24,7 +28,13 @@ export const PokemonList = () => {
           <LanguageSwitcher />
         </div>
       </header>
-      <PokemonGrid results={results} fetchNextPage={fetchNextPage} />
+      <PokemonGrid
+        results={results}
+        fetchNextPage={fetchNextPage}
+        hasNextPage={hasNextPage}
+        fetchPreviousPage={fetchPreviousPage}
+        hasPreviousPage={hasPreviousPage}
+      />
     </main>
   )
 }

@@ -24,7 +24,11 @@ export interface ServiceInfiniteOptions<TItem> {
       readonly unknown[],
       PaginationParams
     >,
-    'queryKey' | 'queryFn' | 'initialPageParam' | 'getNextPageParam'
+    | 'queryKey'
+    | 'queryFn'
+    | 'initialPageParam'
+    | 'getNextPageParam'
+    | 'getPreviousPageParam'
   >
 }
 
@@ -50,6 +54,8 @@ export function serviceInfiniteOptions<TItem>(
     initialPageParam,
     getNextPageParam: (lastPage: Paginated<TItem>) =>
       lastPage.next ?? undefined,
+    getPreviousPageParam: (firstPage: Paginated<TItem>) =>
+      firstPage.previous ?? undefined,
     ...options
   })
 }
