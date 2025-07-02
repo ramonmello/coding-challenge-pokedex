@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useMediaQuery } from '@/app/shared/hooks/useMidiaQuery'
-import { XIcon } from 'lucide-react'
+import { XIcon } from '@/app/shared/components/icons/x-icon'
 
 import {
   Dialog,
