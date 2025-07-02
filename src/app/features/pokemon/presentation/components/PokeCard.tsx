@@ -26,9 +26,9 @@ export const PokeCard = ({ name }: PokeCardProps) => {
 
   return (
     <Collapsible asChild>
-      <div
+      <li
         className={cn(
-          'group h-fit w-full rounded-2xl',
+          'group w-full rounded-2xl',
           'bg-blue-light px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)]'
         )}
       >
@@ -41,6 +41,7 @@ export const PokeCard = ({ name }: PokeCardProps) => {
                 .filter((stat) => stat.name !== 'total')
                 .map((stat) => (
                   <PokeCardStat
+                    className='opacity-0 transition-opacity duration-300 group-data-[state=open]:opacity-100'
                     key={stat.name}
                     name={t(`stats.${stat.name}`)}
                     value={stat.value}
@@ -54,13 +55,15 @@ export const PokeCard = ({ name }: PokeCardProps) => {
               }
             />
           </div>
-          <div className='max-w-36'>
-            <img
-              src={data.image}
-              alt={name}
-              className='h-20 w-auto transition-[height] duration-300 group-data-[state=open]:h-[7.5rem]'
-            />
-          </div>
+
+          <img
+            src={data.image}
+            alt={name}
+            className={cn(
+              'h-20 w-auto origin-top-right transform transition-transform duration-300',
+              'group-data-[state=open]:scale-150'
+            )}
+          />
         </div>
         <div className='mt-2 flex justify-between'>
           {isMobile && (
@@ -88,7 +91,7 @@ export const PokeCard = ({ name }: PokeCardProps) => {
             <PokeDetails {...data} />
           </ResponsiveDialog>
         </div>
-      </div>
+      </li>
     </Collapsible>
   )
 }
