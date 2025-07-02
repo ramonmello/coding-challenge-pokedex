@@ -2,8 +2,17 @@ import { LanguageSwitcher } from '@/app/shared/components'
 import { PokeSearch, PokemonGrid } from '../components'
 import { pokemonListQueryOptions } from '@/app/features/pokemon/queries'
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
+import { useCallback, useState } from 'react'
+import type {
+  PokemonDetails,
+  PokemonListItem
+} from '@/app/features/pokemon/domain/models'
 
 export const PokemonList = () => {
+  const [searchResult, setSearchResult] = useState<PokemonListItem[] | null>(
+    null
+  )
+
   const {
     data,
     fetchNextPage,
@@ -12,7 +21,17 @@ export const PokemonList = () => {
     hasPreviousPage
   } = useSuspenseInfiniteQuery(pokemonListQueryOptions())
   const pages = data?.pages
-  const results = pages?.flatMap((page) => page.results)
+  const infiniteQueryResults = pages?.flatMap((page) => page.results)
+
+  const handleSearch = useCallback((pokemon: PokemonDetails) => {
+    setSearchResult([{ name: pokemon.name, id: pokemon.id.toString() }])
+  }, [])
+
+  const handleClear = useCallback(() => {
+    setSearchResult(null)
+  }, [])
+
+  const results = searchResult ?? infiniteQueryResults
 
   return (
     <main className='flex h-dvh flex-col'>
@@ -23,7 +42,11 @@ export const PokemonList = () => {
             <LanguageSwitcher />
           </div>
         </div>
-        <PokeSearch className='mt-4 h-11 w-full md:order-none md:mt-0 md:w-80' />
+        <PokeSearch
+          className='mt-4 h-11 w-full md:order-none md:mt-0 md:w-80'
+          onSearch={handleSearch}
+          onClear={handleClear}
+        />
         <div className='hidden h-11 md:block'>
           <LanguageSwitcher />
         </div>
@@ -31,9 +54,9 @@ export const PokemonList = () => {
       <PokemonGrid
         results={results}
         fetchNextPage={fetchNextPage}
-        hasNextPage={hasNextPage}
+        hasNextPage={!searchResult && hasNextPage}
         fetchPreviousPage={fetchPreviousPage}
-        hasPreviousPage={hasPreviousPage}
+        hasPreviousPage={!searchResult && hasPreviousPage}
       />
     </main>
   )
