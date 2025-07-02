@@ -8,5 +8,5 @@ const pokemonListQueryKeys = {
 export const pokemonListQueryOptions = serviceInfiniteOptions({
   queryKey: pokemonListQueryKeys.all,
   service: getPokemonListService,
-  initialPageParam: { offset: 0, limit: 12 }
+  initialPageParam: { offset: 0, limit: 9 }
 })
