@@ -30,7 +30,9 @@ export const pokemonDetailsMapper = {
       types: dto.types.map((t) => t.type.name),
       weight: dto.weight,
       height: dto.height,
-      image: dto.sprites.other.dream_world.front_default
+      image:
+        dto.sprites.other.dream_world.front_default ??
+        dto.sprites.other['official-artwork'].front_default
     }
   }
 }
@@ -70,6 +72,9 @@ type PokemonType = {
 type Sprites = {
   other: {
     dream_world: {
+      front_default: string
+    }
+    'official-artwork': {
       front_default: string
     }
   }
