@@ -2,7 +2,6 @@ import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
 import { DefaultLayout } from '@/app/shared/components/layouts'
 import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
-import { Button } from '@/app/shared/components/ui'
 
 const LayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
