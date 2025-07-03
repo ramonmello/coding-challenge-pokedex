@@ -1,8 +1,8 @@
 import {
   Button,
   Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent
+  CollapsibleContent,
+  CollapsibleTrigger
 } from '@/app/shared/components/ui'
 import { useTranslation } from '@/app/shared/hooks/useTranslation'
 import { PokeCardStat } from './PokeCardStat'

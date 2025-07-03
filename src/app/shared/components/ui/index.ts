@@ -1,7 +1,9 @@
-export * from "./button";
-export * from "./sonner";
-export * from "./skeleton";
-export * from "./drawer";
-export * from "./dialog";
-export * from "./badge";
-export * from "./collapsible";
+export { Button } from './button'
+export { Toaster } from './sonner'
+export { Skeleton } from './skeleton'
+export { Badge } from './badge'
+export {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from './collapsible'

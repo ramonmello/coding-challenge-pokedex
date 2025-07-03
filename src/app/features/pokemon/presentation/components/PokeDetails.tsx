@@ -1,6 +1,6 @@
 import useTranslation from '@/app/shared/hooks/useTranslation'
 import { PokeTypes } from './PokeTypes'
-import { Tabs } from './PokeTabs'
+import { PokeTabs } from './PokeTabs'
 import type { PokemonDetails } from '@/app/features/pokemon/domain/models'
 
 export const PokeDetails = ({
@@ -57,7 +57,7 @@ export const PokeDetails = ({
       <PokeTypes types={types} />
       <img src={image} alt={name} className='mx-auto mt-4 mb-6 h-52 w-auto' />
 
-      <Tabs statusContent={<Status />} detailsContent={<Details />} />
+      <PokeTabs statusContent={<Status />} detailsContent={<Details />} />
     </div>
   )
 }
