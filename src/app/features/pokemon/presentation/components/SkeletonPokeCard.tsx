@@ -1,7 +1,7 @@
 import { Skeleton } from '@/app/shared/components/ui'
 
 export const SkeletonPokeCard = () => (
-  <div className='bg-blue-light w-full rounded-2xl px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)]'>
+  <div className='bg-blue-light w-full rounded-2xl px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)] md:max-w-80'>
     <div className='flex justify-between'>
       <div className='flex flex-col gap-2'>
         <Skeleton className='h-7 w-28' />

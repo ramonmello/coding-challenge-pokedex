@@ -8,9 +8,9 @@ const PokemonSearchScreen = () => {
   const params = useParams({ strict: false })
   const { t } = useTranslation('common')
   return (
-    <div className='flex flex-col p-6'>
-      <PokeCard className='mx-auto w-full md:max-w-80' name={params.name} />
-      <Button asChild variant='text' className='mx-auto mt-6 w-fit'>
+    <div className='flex flex-col items-center p-6'>
+      <PokeCard className='md:max-w-80' name={params.name} />
+      <Button asChild variant='text' className='mt-6 w-fit'>
         <Link to='/' aria-label={t('go-back-to-pokedex')}>
           <ArrowIcon className='size-5' />
           {t('go-back-to-pokedex')}
