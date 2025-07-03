@@ -9,7 +9,7 @@ const PokemonSearchScreen = () => {
   const { t } = useTranslation('common')
   return (
     <div className='flex flex-col items-center p-6'>
-      <PokeCard className='md:max-w-80' name={params.name} />
+      <PokeCard className='md:max-w-80' name={params.name as string} />
       <Button asChild variant='text' className='mt-6 w-fit'>
         <Link to='/' aria-label={t('go-back-to-pokedex')}>
           <ArrowIcon className='size-5' />
