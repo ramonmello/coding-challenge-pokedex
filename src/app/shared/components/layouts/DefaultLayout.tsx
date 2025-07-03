@@ -1,13 +1,18 @@
 import { LanguageSwitcher } from '@/app/shared/components'
 import { SearchInput } from '../SearchInput'
 import { useTranslation } from '@/app/shared/hooks'
+import { useIsFetching } from '@tanstack/react-query'
 
 import { Link, Outlet } from '@tanstack/react-router'
 
 export const DefaultLayout = () => {
   const { t } = useTranslation(['common', 'aria-label'])
+  const isFetching = useIsFetching()
   return (
-    <main className='flex h-dvh flex-col'>
+    <main className='relative flex h-dvh flex-col'>
+      {isFetching > 0 && (
+        <span className='bg-blue-dark absolute top-1 left-1/2 h-2 w-20 -translate-x-1/2 animate-pulse rounded-full' />
+      )}
       <header className='flex flex-col px-6 pt-4 md:flex-row md:items-center md:justify-between'>
         <div className='flex items-center justify-between md:justify-start md:gap-4'>
           <Link
