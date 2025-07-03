@@ -1,11 +1,7 @@
-import { createFileRoute, lazyRouteComponent } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
 
 export const Route = createFileRoute('/_layout/search/$name')({
-  component: lazyRouteComponent(
-    () =>
-      import('@/app/features/pokemon/presentation/screens/PokemonSearchScreen')
-  ),
   pendingComponent: () => (
     <div className='flex flex-col items-center p-6'>
       <SkeletonPokeCard />
