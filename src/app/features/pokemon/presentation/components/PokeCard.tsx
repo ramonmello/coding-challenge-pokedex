@@ -61,6 +61,7 @@ export const PokeCard = ({ name, className }: PokeCardProps) => {
           <img
             src={data.image}
             alt={name}
+            fetchPriority='high'
             className={cn(
               'h-20 w-auto origin-top-right transform transition-transform duration-300',
               'group-data-[state=open]:scale-150'

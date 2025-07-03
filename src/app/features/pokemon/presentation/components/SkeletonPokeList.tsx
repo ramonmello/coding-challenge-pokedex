@@ -1,6 +1,6 @@
 import { SkeletonPokeCard } from './SkeletonPokeCard'
 
-const SkeletonPokeList = () => {
+export const SkeletonPokeList = () => {
   return (
     <div className='flex flex-col gap-4'>
       {Array.from({ length: 3 }, (_, index) => (
@@ -9,5 +9,3 @@ const SkeletonPokeList = () => {
     </div>
   )
 }
-
-export default SkeletonPokeList

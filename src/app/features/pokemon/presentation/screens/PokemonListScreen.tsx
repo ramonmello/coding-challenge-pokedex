@@ -2,7 +2,7 @@ import { PokeGrid } from '../components'
 import { pokemonListQueryOptions } from '@/app/features/pokemon/queries'
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 
-const PokemonListScreen = () => {
+export const PokemonListScreen = () => {
   const { data, hasNextPage, isFetchingNextPage, fetchNextPage } =
     useSuspenseInfiniteQuery(pokemonListQueryOptions())
   const pages = data?.pages
@@ -17,5 +17,3 @@ const PokemonListScreen = () => {
     />
   )
 }
-
-export default PokemonListScreen

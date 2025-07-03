@@ -2,6 +2,8 @@ import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
 import { DefaultLayout } from '@/app/shared/components/layouts'
 import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components'
+import { PokemonListScreen } from '@/app/features/pokemon/presentation/screens/PokemonListScreen'
+import { SkeletonPokeList } from '@/app/features/pokemon/presentation/components/SkeletonPokeList'
 
 const LayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -12,8 +14,11 @@ const LayoutRoute = createRoute({
 const PokemonListRoute = createRoute({
   getParentRoute: () => LayoutRoute,
   path: '/',
-  component: lazyRouteComponent(
-    () => import('../presentation/screens/PokemonListScreen')
+  component: PokemonListScreen,
+  pendingComponent: () => (
+    <div className='flex flex-col items-center p-6'>
+      <SkeletonPokeList />
+    </div>
   )
 })
 

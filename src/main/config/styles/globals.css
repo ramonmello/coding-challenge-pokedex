@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 :root {
   --blue-dark: oklch(0.3063 0.0452 278.12);
   --blue-medium: oklch(0.495 0.0462 281.48);
   --blue-light: oklch(0.9816 0.0055 211.04);
-  --roboto: "Roboto", sans-serif;
+  --roboto: 'Roboto', sans-serif;
 
   --background: oklch(1 0 0);
   --foreground: var(--blue-dark);
