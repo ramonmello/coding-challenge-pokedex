@@ -6,7 +6,7 @@ import { useIsFetching } from '@tanstack/react-query'
 import { Link, Outlet } from '@tanstack/react-router'
 
 export const DefaultLayout = () => {
-  const { t } = useTranslation(['common', 'aria-label'])
+  const { t } = useTranslation(['common', 'a11y'])
   const isFetching = useIsFetching()
   return (
     <main className='relative flex h-dvh flex-col'>
@@ -18,7 +18,7 @@ export const DefaultLayout = () => {
           <Link
             to='/'
             className='focus-visible:ring-blue-dark h-11 text-2xl leading-11 font-bold'
-            aria-label={t('go-to-home')}
+            aria-label={t('a11y:go-to-home')}
           >
             Pokédex
           </Link>

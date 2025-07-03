@@ -3,12 +3,14 @@ import { SearchIcon, SendIcon, XIcon } from '@/app/shared/components/icons'
 import { Button } from '@/app/shared/components/ui/button'
 import { cn } from '@/app/shared/utils'
 import { useNavigate } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 
 type SearchInputProps = React.ComponentProps<'input'>
 
 export function SearchInput({ className, ...props }: SearchInputProps) {
   const [searchValue, setSearchValue] = useState('')
   const navigate = useNavigate()
+  const { t } = useTranslation('a11y')
 
   const handleClear = useCallback(() => {
     setSearchValue('')
@@ -50,11 +52,12 @@ export function SearchInput({ className, ...props }: SearchInputProps) {
 
       {searchValue && (
         <Button
-          name='clear-search'
+          name='clear'
           variant='text'
           size='icon'
           onClick={handleClear}
           type='button'
+          aria-label={t('clear-search')}
         >
           <XIcon className='text-blue-medium size-5' />
         </Button>
@@ -66,6 +69,7 @@ export function SearchInput({ className, ...props }: SearchInputProps) {
         className='mr-2'
         type='submit'
         disabled={!searchValue.trim()}
+        aria-label={t('search')}
       >
         <SendIcon className='text-blue-medium size-5' />
       </Button>

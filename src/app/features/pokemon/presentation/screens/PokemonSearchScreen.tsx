@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 const PokemonSearchScreen = () => {
   const params = useParams({ strict: false })
-  const { t } = useTranslation('common')
+  const { t } = useTranslation('a11y')
   return (
     <div className='flex flex-col items-center p-6'>
       <PokeCard className='md:max-w-80' name={params.name as string} />
