@@ -1,11 +1,11 @@
 import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
-import { PokeLayout } from '../presentation/components'
+import { DefaultLayout } from '@/app/shared/components/layouts'
 
 const LayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: 'poke-layout',
-  component: PokeLayout
+  component: DefaultLayout
 })
 
 const PokemonListRoute = createRoute({

@@ -2,13 +2,11 @@ import { useCallback, useState } from 'react'
 import { SearchIcon, SendIcon, XIcon } from '@/app/shared/components/icons'
 import { Button } from '@/app/shared/components/ui/button'
 import { cn } from '@/app/shared/utils'
-import { useTranslation } from 'react-i18next'
 import { useNavigate } from '@tanstack/react-router'
 
-type PokeSearchProps = React.ComponentProps<'input'>
+type SearchInputProps = React.ComponentProps<'input'>
 
-export function PokeSearch({ className, ...props }: PokeSearchProps) {
-  const { t } = useTranslation(['common'])
+export function SearchInput({ className, ...props }: SearchInputProps) {
   const [searchValue, setSearchValue] = useState('')
   const navigate = useNavigate()
 
@@ -42,9 +40,8 @@ export function PokeSearch({ className, ...props }: PokeSearchProps) {
         className='text-blue-medium pointer-events-none mr-4 ml-2 size-6 shrink-0 self-center'
       />
       <input
-        id='search-pokemon'
-        name='search-pokemon'
-        placeholder={t('search-pokemon')}
+        id='search-input'
+        name='search-input'
         className='text-blue-dark placeholder:text-blue-medium w-full text-sm placeholder:text-sm focus:outline-none'
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
@@ -63,7 +60,7 @@ export function PokeSearch({ className, ...props }: PokeSearchProps) {
         </Button>
       )}
       <Button
-        name='search-pokemon'
+        name='search'
         variant='text'
         size='icon'
         className='mr-2'

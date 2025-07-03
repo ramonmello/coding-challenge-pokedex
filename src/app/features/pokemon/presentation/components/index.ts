@@ -1,7 +1,5 @@
-export * from './PokeSearch'
 export * from './PokeCard'
 export * from './PokeCardStat'
 export * from './PokeDetails'
 export * from './SkeletonPokeCard'
 export * from './PokeGrid'
-export * from './PokeLayout'
