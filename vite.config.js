@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import viteReact from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import Inspect from 'vite-plugin-inspect'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import { resolve } from 'node:path'
 
@@ -14,7 +15,8 @@ export default defineConfig({
         './src/app/shared/components/**/*.tsx'
       ]
     }),
-    ...(process.env.NODE_ENV !== 'production' ? [Inspect()] : [])
+    Inspect(),
+    visualizer()
   ],
   test: {
     globals: true,
@@ -27,6 +29,8 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
+    gzip: true,
+    brotli: true,
     rollupOptions: {
       output: {
         manualChunks: {
