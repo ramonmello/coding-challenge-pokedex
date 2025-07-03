@@ -18,9 +18,7 @@ const UnderMaintenanceRoute = UnderMaintenanceRouteImport.update({
   id: '/under-maintenance',
   path: '/under-maintenance',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() =>
-  import('./routes/under-maintenance.lazy').then((d) => d.Route),
-)
+} as any)
 const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
   getParentRoute: () => rootRouteImport,
@@ -29,14 +27,12 @@ const LayoutIndexRoute = LayoutIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => LayoutRoute,
-} as any).lazy(() => import('./routes/_layout.index.lazy').then((d) => d.Route))
+} as any)
 const LayoutSearchNameRoute = LayoutSearchNameRouteImport.update({
   id: '/search/$name',
   path: '/search/$name',
   getParentRoute: () => LayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_layout.search.$name.lazy').then((d) => d.Route),
-)
+} as any)
 
 export interface FileRoutesByFullPath {
   '/under-maintenance': typeof UnderMaintenanceRoute
