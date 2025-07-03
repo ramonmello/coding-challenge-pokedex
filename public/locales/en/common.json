@@ -9,5 +9,9 @@
     "special-defense": "Sp. def",
     "speed": "Speed",
     "total": "Total"
+  },
+  "notFound": {
+    "title": "Pokémon not found",
+    "message": "Sorry, we couldn't find the Pokémon you're looking for. Please check if the name is correct and try again."
   }
 }
