@@ -1,10 +1,10 @@
-import { useTranslation as useI18NextTranslation } from "react-i18next";
+import { useTranslation as useI18NextTranslation } from 'react-i18next'
 import type {
   UseTranslationResponse,
   UseTranslationOptions,
-  FallbackNs,
-} from "react-i18next";
-import type { FlatNamespace, KeyPrefix } from "i18next";
+  FallbackNs
+} from 'react-i18next'
+import type { FlatNamespace, KeyPrefix } from 'i18next'
 
 export function useTranslation<
   Ns extends FlatNamespace | readonly FlatNamespace[] | undefined = undefined,
@@ -13,7 +13,7 @@ export function useTranslation<
   ns?: Ns,
   options?: UseTranslationOptions<KPrefix>
 ): UseTranslationResponse<FallbackNs<Ns>, KPrefix> {
-  return useI18NextTranslation(ns, options);
+  return useI18NextTranslation(ns, options)
 }
 
-export default useTranslation;
+export default useTranslation

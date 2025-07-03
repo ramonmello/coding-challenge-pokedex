@@ -60,7 +60,7 @@ export const PokeCard = ({ name, className }: PokeCardProps) => {
 
           <img
             src={data.image}
-            alt={name}
+            alt={data.name}
             fetchPriority='high'
             className={cn(
               'h-20 w-auto origin-top-right transform transition-transform duration-300',
@@ -88,7 +88,7 @@ export const PokeCard = ({ name, className }: PokeCardProps) => {
                 {t('card:viewDetails')}
               </Button>
             }
-            title={name}
+            title={data.name}
             description={t('card:viewDetails')}
           >
             <PokeDetails {...data} />

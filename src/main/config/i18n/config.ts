@@ -1,3 +1,3 @@
-export const SUPPORTED_LANGUAGES = ["en", "pt"] as const;
+export const SUPPORTED_LANGUAGES = ['en', 'pt'] as const
 
-export const LOAD_PATH = "/locales/{{lng}}/{{ns}}.json";
+export const LOAD_PATH = '/locales/{{lng}}/{{ns}}.json'

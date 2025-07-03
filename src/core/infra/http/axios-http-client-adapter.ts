@@ -1,18 +1,18 @@
-import axios, { type AxiosInstance } from "axios";
+import axios, { type AxiosInstance } from 'axios'
 import type {
   HttpClient,
   HttpRequest,
   HttpResponse,
-  HttpError,
-} from "@/core/application/protocols";
+  HttpError
+} from '@/core/application/protocols'
 // import { APP_ENV } from '@/main/env'
 
 export class AxiosHttpClientAdapter implements HttpClient {
-  private readonly axiosInstance: AxiosInstance;
+  private readonly axiosInstance: AxiosInstance
   constructor() {
     this.axiosInstance = axios.create({
-      baseURL: import.meta.env.VITE_API_URL,
-    });
+      baseURL: import.meta.env.VITE_API_URL
+    })
   }
 
   async request({
@@ -20,7 +20,7 @@ export class AxiosHttpClientAdapter implements HttpClient {
     url,
     body,
     headers,
-    queryParams,
+    queryParams
   }: HttpRequest): Promise<HttpResponse> {
     try {
       const axiosResponse = await this.axiosInstance.request({
@@ -28,19 +28,19 @@ export class AxiosHttpClientAdapter implements HttpClient {
         data: body,
         headers,
         method,
-        params: queryParams,
-      });
+        params: queryParams
+      })
       return {
         statusCode: axiosResponse.status,
-        body: axiosResponse.data,
-      };
+        body: axiosResponse.data
+      }
     } catch (error: any) {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       return {
         error: error.response?.data,
         statusCode: error.response?.status,
-        message: error.response?.statusText,
-      } as HttpError;
+        message: error.response?.statusText
+      } as HttpError
     }
   }
 }

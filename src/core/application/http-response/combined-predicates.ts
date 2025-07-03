@@ -1,21 +1,21 @@
-import { type Either, Error, Success } from "@/core/domain/either/either";
+import { type Either, Error, Success } from '@/core/domain/either/either'
 
-type Predicate = (value: any) => boolean;
+type Predicate = (value: any) => boolean
 
-export type CombinedPredicated<E> = Array<[Predicate, E]>;
+export type CombinedPredicated<E> = Array<[Predicate, E]>
 
 export const combinedPredicates = <E, S>({
   value,
-  predicatePairs,
+  predicatePairs
 }: {
-  value: S;
-  predicatePairs: CombinedPredicated<E>;
+  value: S
+  predicatePairs: CombinedPredicated<E>
 }): Either<E, S> => {
   for (const [verifier, error] of predicatePairs) {
     if (verifier(value)) {
-      return new Error(error);
+      return new Error(error)
     }
   }
 
-  return new Success(value);
-};
+  return new Success(value)
+}
