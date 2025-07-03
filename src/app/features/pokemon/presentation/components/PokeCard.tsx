@@ -17,19 +17,21 @@ import { useMediaQuery } from '@/app/shared/hooks'
 
 type PokeCardProps = {
   name: string
+  className?: string
 }
 
-export const PokeCard = ({ name }: PokeCardProps) => {
+export const PokeCard = ({ name, className }: PokeCardProps) => {
   const { t } = useTranslation(['common', 'card'])
   const { data } = useSuspenseQuery(pokemonDetailsQueryOptions({ name }))
   const isMobile = useMediaQuery('(max-width: 768px)')
 
   return (
     <Collapsible asChild>
-      <li
+      <div
         className={cn(
           'group w-full rounded-2xl',
-          'bg-blue-light px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)]'
+          'bg-blue-light px-4 pt-4 pb-2 shadow-[1px_1px_2px_0_rgba(0,0,0,0.1),_-1px_-1px_2px_0_rgba(0,0,0,0.05)]',
+          className
         )}
       >
         <div className='flex justify-between'>
@@ -91,7 +93,7 @@ export const PokeCard = ({ name }: PokeCardProps) => {
             <PokeDetails {...data} />
           </ResponsiveDialog>
         </div>
-      </li>
+      </div>
     </Collapsible>
   )
 }

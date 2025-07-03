@@ -1,11 +1,32 @@
-import { createRoute } from '@tanstack/react-router'
+import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
-import { PokemonList } from '../presentation/screens'
+import { PokeLayout } from '../presentation/components'
 
-const PokemonListRoute = createRoute({
+const LayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
-  component: PokemonList
+  id: 'poke-layout',
+  component: PokeLayout
 })
 
-export const pokemonRoutes = [PokemonListRoute]
+const PokemonListRoute = createRoute({
+  getParentRoute: () => LayoutRoute,
+  path: '/',
+  component: lazyRouteComponent(
+    () => import('../presentation/screens/PokemonListScreen')
+  )
+})
+
+export const PokemonSearchRoute = createRoute({
+  getParentRoute: () => LayoutRoute,
+  path: 'search/$name',
+  component: lazyRouteComponent(
+    () => import('../presentation/screens/PokemonSearchScreen')
+  )
+})
+
+export const RoutesWithLayout = LayoutRoute.addChildren([
+  PokemonListRoute,
+  PokemonSearchRoute
+])
+
+export const pokemonRoutes = [RoutesWithLayout]

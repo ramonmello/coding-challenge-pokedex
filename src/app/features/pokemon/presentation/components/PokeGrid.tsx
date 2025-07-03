@@ -13,7 +13,7 @@ type PokemonGridProps = {
   fetchNextPage: () => void
 }
 
-export const PokemonGrid = ({
+export const PokeGrid = ({
   results,
   hasNextPage,
   isFetchingNextPage,
@@ -87,7 +87,7 @@ type VirtualRowProps = {
 
 const VirtualRow = ({ items, index, virtualizer }: VirtualRowProps) => {
   return (
-    <div className='py-2' data-index={index} ref={virtualizer.measureElement}>
+    <li className='py-2' data-index={index} ref={virtualizer.measureElement}>
       <div className='flex gap-4'>
         {items.map(({ id, name }) => (
           <Suspense key={`${name}-${id}`} fallback={<SkeletonPokeCard />}>
@@ -95,6 +95,6 @@ const VirtualRow = ({ items, index, virtualizer }: VirtualRowProps) => {
           </Suspense>
         ))}
       </div>
-    </div>
+    </li>
   )
 }

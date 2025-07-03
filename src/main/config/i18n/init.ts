@@ -9,7 +9,7 @@ const options: InitOptions = {
   debug: import.meta.env.DEV,
   fallbackLng: 'en',
   supportedLngs: SUPPORTED_LANGUAGES,
-  ns: ['common', 'card', 'modal'],
+  ns: ['common', 'card', 'modal', 'aria-label'],
   defaultNS: 'common',
   backend: {
     loadPath: LOAD_PATH
