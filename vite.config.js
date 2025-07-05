@@ -26,25 +26,5 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src')
     }
-  },
-  build: {
-    sourcemap: true,
-    gzip: true,
-    brotli: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          'react-router': ['@tanstack/react-router'],
-          'react-query': ['@tanstack/react-query'],
-          'react-i18next': ['react-i18next'],
-          axios: ['axios'],
-          'react-dialog': ['@radix-ui/react-dialog'],
-          'react-collapsible': ['@radix-ui/react-collapsible'],
-          'react-slot': ['@radix-ui/react-slot'],
-          vaul: ['vaul']
-        }
-      }
-    }
   }
 })
