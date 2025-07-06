@@ -62,8 +62,15 @@ export const PokeCard = ({ name, className }: PokeCardProps) => {
             src={data.image}
             alt={data.name}
             fetchPriority='high'
+            // TODO: improve height and width balance of the pokemon
+            /**
+             * Performance issue:
+             * Set an explicit width and height on image elements to reduce layout
+             * shifts and improve CLS. Learn how to set image dimensions (CLS)
+             * https://web.dev/optimize-cls/#set-explicit-dimensions-on-images
+             */
             className={cn(
-              'h-20 w-auto origin-top-right transform transition-transform duration-300',
+              'h-20 w-24 origin-top-right transform transition-transform duration-300',
               'group-data-[state=open]:scale-150'
             )}
           />
