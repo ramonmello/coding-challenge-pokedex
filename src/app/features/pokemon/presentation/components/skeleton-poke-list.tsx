@@ -1,4 +1,4 @@
-import { SkeletonPokeCard } from './SkeletonPokeCard'
+import { SkeletonPokeCard } from './skeleton-poke-card'
 
 export const SkeletonPokeList = () => {
   return (

@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import reportWebVitals from '@/main/reportWebVitals'
-import { App } from './App'
+import reportWebVitals from '@/main/report-web-vitals'
+import { App } from './app'
 
 const rootElement = document.getElementById('app')
 if (rootElement && !rootElement.innerHTML) {

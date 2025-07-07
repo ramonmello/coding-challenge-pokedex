@@ -1,4 +1,4 @@
-import { PokeGrid } from '../components/PokeGrid'
+import { PokeGrid } from '../components/poke-grid'
 import { pokemonListQueryOptions } from '@/app/features/pokemon/queries/pokemon-list-query'
 import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 

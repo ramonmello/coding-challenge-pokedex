@@ -1,6 +1,6 @@
 import { SUPPORTED_LANGUAGES } from '@/main/config/i18n/config'
 import { Button } from '@/app/shared/components/ui/button'
-import { useTranslation } from '@/app/shared/hooks/useTranslation'
+import { useTranslation } from '@/app/shared/hooks/use-translation'
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation('common')

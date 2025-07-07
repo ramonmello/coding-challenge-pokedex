@@ -4,16 +4,16 @@ import {
   CollapsibleTrigger
 } from '@/app/shared/components/ui/collapsible'
 import { Button } from '@/app/shared/components/ui/button'
-import { useTranslation } from '@/app/shared/hooks/useTranslation'
-import { PokeCardStat } from './PokeCardStat'
+import { useTranslation } from '@/app/shared/hooks/use-translation'
+import { PokeCardStat } from './poke-card-stat'
 import { ChevronDownIcon } from '@/app/shared/components/icons/chevron-down'
-import { ResponsiveDialog } from '@/app/shared/components/ResponsiveDialog'
-import { PokeDetails } from './PokeDetails'
-import { PokeTypes } from './PokeTypes'
+import { ResponsiveDialog } from '@/app/shared/components/responsive-dialog'
+import { PokeDetails } from './poke-details'
+import { PokeTypes } from './poke-types'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { pokemonDetailsQueryOptions } from '@/app/features/pokemon/queries/pokemon-details-query'
 import { cn } from '@/app/shared/utils'
-import { useMediaQuery } from '@/app/shared/hooks/useMidiaQuery'
+import { useMediaQuery } from '@/app/shared/hooks/use-midia-query'
 
 type PokeCardProps = {
   name: string
