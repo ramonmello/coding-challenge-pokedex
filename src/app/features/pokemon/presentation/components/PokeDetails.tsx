@@ -1,7 +1,7 @@
 import useTranslation from '@/app/shared/hooks/useTranslation'
 import { PokeTypes } from './PokeTypes'
 import { PokeTabs } from './PokeTabs'
-import type { PokemonDetails } from '@/app/features/pokemon/domain/models'
+import type { PokemonDetails } from '@/app/features/pokemon/domain/models/pokemon-details-models'
 
 export const PokeDetails = ({
   name,

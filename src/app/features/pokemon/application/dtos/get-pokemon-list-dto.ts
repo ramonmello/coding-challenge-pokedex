@@ -1,4 +1,4 @@
-import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
+import type { PokemonListItem } from '@/app/features/pokemon/domain/models/pokemon-list-models'
 import type { Paginated } from '@/core/domain/types/paginated'
 import type { PaginatedDTO } from '@/app/shared/types/paginated-dto'
 

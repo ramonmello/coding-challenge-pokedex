@@ -3,13 +3,13 @@ import type { HttpClient } from '@/core/application/protocols/http-client'
 import { HttpMethod } from '@/core/application/protocols/http-client'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
-import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
+import type { PokemonListItem } from '@/app/features/pokemon/domain/models/pokemon-list-models'
 import type { Paginated, PaginationParams } from '@/core/domain/types/paginated'
 import type { PaginatedDTO } from '@/app/shared/types/paginated-dto'
 import {
   pokemonListMapper,
   type PokemonListItemDTO
-} from '@/app/features/pokemon/application/dtos'
+} from '@/app/features/pokemon/application/dtos/get-pokemon-list-dto'
 
 export class GetPokemonList
   implements ServiceCommand<GetPokemonList.Response, GetPokemonList.Params>

@@ -1,5 +1,5 @@
 import { Link, useParams } from '@tanstack/react-router'
-import { PokeCard } from '../components'
+import { PokeCard } from '../components/PokeCard'
 import { ArrowIcon } from '@/app/shared/components/icons/arrow'
 import { Button } from '@/app/shared/components/ui/button'
 import { useTranslation } from 'react-i18next'

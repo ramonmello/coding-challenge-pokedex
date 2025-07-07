@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef } from 'react'
 import { useVirtualizer, Virtualizer } from '@tanstack/react-virtual'
-import type { PokemonListItem } from '@/app/features/pokemon/domain/models'
+import type { PokemonListItem } from '@/app/features/pokemon/domain/models/pokemon-list-models'
 import { PokeCard } from './PokeCard'
 import { SkeletonPokeCard } from './SkeletonPokeCard'
 

@@ -6,8 +6,8 @@ import { error, success } from '@/core/domain/either/either'
 import {
   pokemonDetailsMapper,
   type PokemonDetailsDTO
-} from '@/app/features/pokemon/application/dtos'
-import type { PokemonDetails } from '@/app/features/pokemon/domain/models'
+} from '@/app/features/pokemon/application/dtos/get-pokemon-details-dto'
+import type { PokemonDetails } from '@/app/features/pokemon/domain/models/pokemon-details-models'
 
 export class GetPokemonDetails
   implements

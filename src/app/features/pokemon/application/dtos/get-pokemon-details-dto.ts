@@ -1,4 +1,4 @@
-import type { PokemonDetails } from '@/app/features/pokemon/domain/models'
+import type { PokemonDetails } from '@/app/features/pokemon/domain/models/pokemon-details-models'
 
 export type PokemonDetailsDTO = {
   abilities: AbilityEntry[]

@@ -11,7 +11,7 @@ import { ResponsiveDialog } from '@/app/shared/components/ResponsiveDialog'
 import { PokeDetails } from './PokeDetails'
 import { PokeTypes } from './PokeTypes'
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { pokemonDetailsQueryOptions } from '@/app/features/pokemon/queries'
+import { pokemonDetailsQueryOptions } from '@/app/features/pokemon/queries/pokemon-details-query'
 import { cn } from '@/app/shared/utils'
 import { useMediaQuery } from '@/app/shared/hooks/useMidiaQuery'
 
