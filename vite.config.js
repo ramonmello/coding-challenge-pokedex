@@ -18,6 +18,9 @@ export default defineConfig({
     Inspect(),
     visualizer()
   ],
+  build: {
+    target: 'es2022'
+  },
   test: {
     globals: true,
     environment: 'jsdom'
