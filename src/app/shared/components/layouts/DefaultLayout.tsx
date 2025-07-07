@@ -1,6 +1,6 @@
-import { LanguageSwitcher } from '@/app/shared/components'
+import { LanguageSwitcher } from '@/app/shared/components/LanguageSwitcher'
 import { SearchInput } from '../SearchInput'
-import { useTranslation } from '@/app/shared/hooks'
+import { useTranslation } from '@/app/shared/hooks/useTranslation'
 import { useIsFetching } from '@tanstack/react-query'
 
 import { Link, Outlet } from '@tanstack/react-router'

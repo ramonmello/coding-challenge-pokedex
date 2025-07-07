@@ -1,6 +1,6 @@
 import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
-import { DefaultLayout } from '@/app/shared/components/layouts'
+import { DefaultLayout } from '@/app/shared/components/layouts/DefaultLayout'
 import {
   PokemonNotFound,
   SkeletonPokeCard

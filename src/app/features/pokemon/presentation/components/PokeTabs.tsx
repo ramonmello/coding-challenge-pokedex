@@ -1,4 +1,4 @@
-import { Button } from '@/app/shared/components/ui'
+import { Button } from '@/app/shared/components/ui/button'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import { cn } from '@/app/shared/utils/cn'
