@@ -1,5 +1,5 @@
 import { type Either } from '@/core/domain/either/either'
-import { type DomainException } from '@/core/domain/exceptions'
+import { type DomainException } from '@/core/domain/exceptions/domain-exception'
 
 export interface ServiceCommand<R = unknown, T = void> {
   /**

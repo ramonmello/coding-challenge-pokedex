@@ -1,7 +1,11 @@
-import { type HttpResponse, HttpStatusCode } from '@/core/application/protocols'
+import {
+  type HttpResponse,
+  HttpStatusCode
+} from '@/core/application/protocols/http-client'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
-import { AccessDeniedError, UnexpectedError } from '@/core/domain/exceptions'
+import { AccessDeniedError } from '@/core/domain/exceptions/access-denied-error'
+import { UnexpectedError } from '@/core/domain/exceptions/unexpected-error'
 
 import {
   type CombinedPredicated,
