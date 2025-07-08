@@ -2,8 +2,8 @@ import { createRootRouteWithContext } from '@tanstack/react-router'
 import type { QueryClient } from '@tanstack/react-query'
 import { Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import { generalRoutes } from '@/app/features/general'
-import { pokemonRoutes } from '@/app/features/pokemon'
+import { generalRoutes } from '@/app/features/general/router'
+import { pokemonRoutes } from '@/app/features/pokemon/router'
 
 type RouterContext = {
   queryClient: QueryClient

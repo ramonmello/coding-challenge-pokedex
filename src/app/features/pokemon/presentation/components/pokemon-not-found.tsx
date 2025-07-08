@@ -1,4 +1,4 @@
-import { useTranslation } from '@/app/shared/hooks'
+import { useTranslation } from '@/app/shared/hooks/use-translation'
 
 export const PokemonNotFound = () => {
   const { t } = useTranslation('common')

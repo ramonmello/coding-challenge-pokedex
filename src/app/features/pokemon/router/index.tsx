@@ -1,12 +1,10 @@
 import { createRoute, lazyRouteComponent } from '@tanstack/react-router'
 import { rootRoute } from '@/main/router/config/router-config'
-import { DefaultLayout } from '@/app/shared/components/layouts'
-import {
-  PokemonNotFound,
-  SkeletonPokeCard
-} from '@/app/features/pokemon/presentation/components'
-import { PokemonListScreen } from '@/app/features/pokemon/presentation/screens/PokemonListScreen'
-import { SkeletonPokeList } from '@/app/features/pokemon/presentation/components/SkeletonPokeList'
+import { DefaultLayout } from '@/app/shared/components/layouts/default-layout'
+import { PokemonNotFound } from '@/app/features/pokemon/presentation/components/pokemon-not-found'
+import { SkeletonPokeCard } from '@/app/features/pokemon/presentation/components/skeleton-poke-card'
+import { PokemonListScreen } from '@/app/features/pokemon/presentation/screens/pokemon-list-screen'
+import { SkeletonPokeList } from '@/app/features/pokemon/presentation/components/skeleton-poke-list'
 
 const LayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -29,7 +27,7 @@ export const PokemonSearchRoute = createRoute({
   getParentRoute: () => LayoutRoute,
   path: 'search/$name',
   component: lazyRouteComponent(
-    () => import('../presentation/screens/PokemonSearchScreen')
+    () => import('../presentation/screens/pokemon-search-screen')
   ),
   pendingComponent: () => (
     <div className='flex flex-col items-center p-6'>

@@ -1,4 +1,4 @@
-import { serviceOptions } from '@/core/query'
+import { serviceOptions } from '@/core/query/service-query'
 import {
   getPokemonDetailsService,
   type GetPokemonDetails

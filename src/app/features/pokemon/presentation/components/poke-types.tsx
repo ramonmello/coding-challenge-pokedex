@@ -1,4 +1,4 @@
-import { Badge } from '@/app/shared/components/ui'
+import { Badge } from '@/app/shared/components/ui/badge'
 import { cn } from '@/app/shared/utils'
 
 export type PokeTypesProps = {

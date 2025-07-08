@@ -2,7 +2,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { Toaster } from '@/app/shared/components/ui/sonner'
-import { queryClient } from '@/core/query'
+import { queryClient } from '@/core/query/client'
 import { Router } from './router/router'
 import '@/main/config/i18n/init'
 import './config/styles/globals.css'

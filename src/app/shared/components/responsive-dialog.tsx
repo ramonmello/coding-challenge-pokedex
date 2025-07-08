@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { useMediaQuery } from '@/app/shared/hooks/useMidiaQuery'
+import { useMediaQuery } from '@/app/shared/hooks/use-midia-query'
 import { XIcon } from '@/app/shared/components/icons/x-icon'
 
 import {

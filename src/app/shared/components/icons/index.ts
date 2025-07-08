@@ -1,5 +1,0 @@
-export { ChevronDownIcon } from './chevron-down'
-export { SearchIcon } from './search'
-export { SendIcon } from './send'
-export { XIcon } from './x-icon'
-export { ArrowIcon } from './arrow'

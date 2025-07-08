@@ -4,8 +4,7 @@ import type {
   HttpRequest,
   HttpResponse,
   HttpError
-} from '@/core/application/protocols'
-// import { APP_ENV } from '@/main/env'
+} from '@/core/application/protocols/http-client'
 
 export class AxiosHttpClientAdapter implements HttpClient {
   private readonly axiosInstance: AxiosInstance

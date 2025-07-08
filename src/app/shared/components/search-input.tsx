@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react'
-import { SearchIcon, SendIcon, XIcon } from '@/app/shared/components/icons'
+import { SearchIcon } from '@/app/shared/components/icons/search'
+import { SendIcon } from '@/app/shared/components/icons/send'
+import { XIcon } from '@/app/shared/components/icons/x-icon'
 import { Button } from '@/app/shared/components/ui/button'
 import { cn } from '@/app/shared/utils'
 import { useNavigate } from '@tanstack/react-router'

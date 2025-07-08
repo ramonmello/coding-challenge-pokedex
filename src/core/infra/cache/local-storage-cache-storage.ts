@@ -1,4 +1,4 @@
-import { type CacheStorage } from '@/core/application/protocols'
+import { type CacheStorage } from '@/core/application/protocols/cache-storage'
 
 export class LocalStorageCacheStorage implements CacheStorage {
   get<T>(key: string): T | undefined {

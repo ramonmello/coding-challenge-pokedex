@@ -1,4 +1,4 @@
-import type { HttpClient } from '@/core/application/protocols'
+import type { HttpClient } from '@/core/application/protocols/http-client'
 
 import { AxiosHttpClientAdapter } from './axios-http-client-adapter'
 

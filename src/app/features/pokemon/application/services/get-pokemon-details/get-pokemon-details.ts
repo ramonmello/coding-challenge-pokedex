@@ -1,13 +1,13 @@
 import { RequestResponse } from '@/core/application/http-response/http-response'
-import type { HttpClient } from '@/core/application/protocols'
-import { HttpMethod } from '@/core/application/protocols'
+import type { HttpClient } from '@/core/application/protocols/http-client'
+import { HttpMethod } from '@/core/application/protocols/http-client'
 import { type ServiceCommand } from '@/core/domain/command/service-command'
 import { error, success } from '@/core/domain/either/either'
 import {
   pokemonDetailsMapper,
   type PokemonDetailsDTO
-} from '@/app/features/pokemon/application/dtos'
-import type { PokemonDetails } from '@/app/features/pokemon/domain/models'
+} from '@/app/features/pokemon/application/dtos/get-pokemon-details-dto'
+import type { PokemonDetails } from '@/app/features/pokemon/domain/models/pokemon-details-models'
 
 export class GetPokemonDetails
   implements
