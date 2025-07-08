@@ -29,5 +29,19 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src')
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        advancedChunks: {
+          groups: [
+            { name: 'vendor', test: /\/react(?:-dom)?/ },
+            { name: 'vaul', test: /\/vaul/ },
+            { name: 'sonner', test: /\/sonner/ },
+            { name: 'axios', test: /\/axios/ }
+          ]
+        }
+      }
+    }
   }
 })
